@@ -1,0 +1,205 @@
+:root {
+    --font-family: 'Noto Serif SC', serif;
+    --primary: #1e88e5;
+    --card-box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+}
+
+:root:not([data-theme=dark]), [data-theme=light] {
+    --del-color: color: rgba(23, 43, 77, 0.5);
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme=light]) {
+        --del-color: color: rgba(23, 43, 77, 0.5);
+    }
+}
+
+[data-theme=dark] {
+    --del-color: color: rgba(23, 43, 77, 0.5);
+}
+
+@media (min-width:576px) { :root { --font-size:17px } }
+@media (min-width:768px) { :root { --font-size:17px } }
+@media (min-width:992px) { :root { --font-size:17px } }
+@media (min-width:1200px) { :root { --font-size:17px } }
+
+@media (min-width: 576px) {
+    body > footer, body > header, body > main, section {
+        --block-spacing-vertical:calc(var(--spacing) * 1)
+    }
+}
+@media (min-width: 768px) {
+    body > footer, body > header, body > main, section {
+        --block-spacing-vertical:calc(var(--spacing) * 1.5)
+    }
+}
+@media (min-width: 992px) {
+    body > footer, body > header, body > main, section {
+        --block-spacing-vertical:calc(var(--spacing) * 1.75)
+    }
+}
+@media (min-width: 1200px) {
+    body > footer, body > header, body > main, section {
+        --block-spacing-vertical: calc(var(--spacing) * 2);
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 820px;
+}
+
+body>header, body>footer, nav {
+    text-align: center;
+}
+
+body>header {
+    padding-top: calc(var(--spacing) * 4);
+    padding-bottom: calc(var(--spacing) * 1);
+}
+
+section {
+    margin-top: var(--block-spacing-vertical);
+}
+
+hr {
+    --block-spacing-vertical: calc(var(--spacing) * 2);
+    margin-top: var(--block-spacing-vertical);
+    margin-bottom: var(--block-spacing-vertical);
+}
+
+/* What happened here? */
+ol, ul {
+    padding-inline-start: calc(var(--spacing) * 2)
+}
+
+/* 莫名其妙吧，margin-top 0？ */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: var(--typography-spacing-vertical);
+}
+
+/* 莫名其妙吧，margin-bottom 默认设置这么大，有法看么 =_= */
+h1 { --typography-spacing-vertical: 1.5rem; }
+h2 { --typography-spacing-vertical: 1.25rem; }
+h3 { --typography-spacing-vertical: 1.0rem; }
+h4 { --typography-spacing-vertical: 0.75rem; }
+h5 { --typography-spacing-vertical: 0.5rem; }
+
+.meta-info {
+    color: var(--muted-color);
+}
+
+.shadow {
+    box-shadow: var(--card-box-shadow) !important;
+}
+
+.rounded {
+    border-radius: var(--border-radius);
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.headpic {
+    border-radius: 100px;
+}
+
+.navbar {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    padding: 0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+
+    --font-weight: 500;
+}
+
+.navbar a .active {
+    border-bottom: solid var(--primary);
+}
+
+nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+nav a { color: var(--secondary); }
+nav a:hover { color: var(--secondary-hover); }
+nav a:focus { color: var(--secondary-focus); }
+
+/* 首页摘要里各种标题只用较大的粗体呈现 */
+.summary h1, .summary h2, .summary h3, .summary h4, .summary h5 {
+    --font-size: 1.125rem;
+    --typography-spacing-vertical: 0.5rem;
+    font-weight: bold;
+    line-height: var(--line-height);
+}
+
+.alert {
+    margin: var(--typography-spacing-vertical) 0;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-box-shadow);
+    background-color: var(--primary);
+    color: var(--primary-inverse);
+    font-size: var(--font-size);
+}
+
+blockquote {
+    --font-family: Kai, "Kaiti SC", Georgia, "Times New Roman", Times, KaiTi, BiauKai, 'Noto Serif SC', serif;
+    border-left: 10px solid var(--blockquote-border-color);
+}
+blockquote::before {
+    --font-family: serif;
+    font-family: var(--font-family);
+    color: var(--blockquote-border-color);
+    content: "“";
+    font-size: calc(var(--font-size) * 5);
+    /* vertical-align: -.4em; */
+    line-height: 0;
+}
+
+code, kbd {
+    padding: .2rem .3rem;
+}
+
+.img-fluid {
+    max-height: 600px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.375rem;
+    font-size: 80%;
+    text-align: center;
+    vertical-align: baseline;
+    line-height: 1;
+    border-radius: 0.25rem;
+    color: var(--secondary);
+    background-color: var(--secondary-inverse);
+}
+
+.avatar {
+    float: left;
+    height: calc(var(--line-height) * 2rem);
+    width: calc(var(--line-height) * 2rem);
+    margin-right: 5px;
+}
+
+.icon-ua {
+    height: 16px;
+}
+
+#nis:before {
+    content: url(../img/beian.png);
+    vertical-align: middle;
+    display: inline-block;
+    line-height: var(--line-height);
+}
