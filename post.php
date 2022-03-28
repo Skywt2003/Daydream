@@ -7,7 +7,7 @@
 
 <?php if ($this->fields->headPic !=''): ?>
     <a data-fancybox="gallery" href="<?php $this->fields->headPic(); ?>" data-caption="<?php $this->title(); ?>">
-        <img src=<?php $this->fields->headPic(); ?> class="img-fluid mx-auto d-block shadow rounded mb-3" alt="<?php $this->title(); ?>" title="<?php $this->title(); ?>">
+        <img src=<?php $this->fields->headPic(); ?> class="shadow rounded" alt="<?php $this->title(); ?>" title="<?php $this->title(); ?>">
     </a>
 <?php endif; ?> 
 

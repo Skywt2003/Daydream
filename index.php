@@ -22,18 +22,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <section itemscope itemtype="http://schema.org/BlogPosting">
         <?php if ($this->fields->headPic !=''): ?>
             <a data-fancybox="gallery" href="<?php $this->fields->headPic(); ?>" data-caption="<?php $this->title(); ?>">
-                <img src=<?php $this->fields->headPic();?> class="img-fluid mx-auto d-block shadow rounded mb-3" alt="<?php $this->title(); ?>" title="<?php $this->title(); ?>">
+                <img src=<?php $this->fields->headPic();?> class="shadow rounded" alt="<?php $this->title(); ?>" title="<?php $this->title(); ?>">
             </a>
         <?php endif; ?>
-        <!-- <h1 itemprop="name headline">
-            <a itemprop="url" href="<?php $this->permalink();?>"><?php $this->title();?></a>
-    	</h1> -->
-        
         <a itemprop="url" href="<?php $this->permalink();?>">
             <h1 itemprop="name headline"><?php $this->title();?></h1>
         </a>
-    	
-        <div class="summary"itemprop="articleBody">
+        <div class="summary" itemprop="articleBody">
     		<?php $this->content('More...'); ?>
         </div>
     </section>

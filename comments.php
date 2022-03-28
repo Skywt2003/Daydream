@@ -84,7 +84,7 @@
                     </div>
                 <?php endif; ?>
                 <textarea rows="8" cols="50" name="text" id="textarea" placeholder="Say something!" required ><?php $this->remember('text'); ?></textarea>
-                <button type="submit">Submit</button>
+                <button class="shadow" type="submit">Submit</button>
                 <label>
                     <input type="checkbox" role="switch" name="receiveMail" id="receiveMail" value="yes" checked />
                     <label for="receiveMail">接收邮件通知</label>

@@ -155,6 +155,8 @@ nav a:focus { color: var(--secondary-focus); }
 blockquote {
     --font-family: Kai, "Kaiti SC", Georgia, "Times New Roman", Times, KaiTi, BiauKai, 'Noto Serif SC', serif;
     border-left: 10px solid var(--blockquote-border-color);
+    box-shadow: var(--card-box-shadow) !important;
+    border-radius: var(--border-radius);
 }
 blockquote::before {
     --font-family: serif;
@@ -170,7 +172,7 @@ code, kbd {
     padding: .2rem .3rem;
 }
 
-.img-fluid {
+.post-content img {
     max-height: 600px;
 }
 
