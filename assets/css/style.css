@@ -114,10 +114,11 @@ h5 { --typography-spacing-vertical: 0.5rem; }
     padding: 0;
 
     position: sticky;
-    top: 0;
+    top: -1px; /* a little trick */
     z-index: 1020;
 
     --font-weight: 500;
+    transition: .3s;
 }
 
 .navbar a .active {
