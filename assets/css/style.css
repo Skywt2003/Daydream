@@ -199,6 +199,10 @@ code, kbd {
     height: 16px;
 }
 
+footer a {
+    --color: var(--secondary);
+}
+
 #nis:before {
     content: url(../img/beian.png);
     vertical-align: middle;
