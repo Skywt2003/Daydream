@@ -2,47 +2,41 @@
 
 <?php function threadedComments($comments, $options) {
     $commentClass = '';
-    if ($comments->levels > 0) $commentClass .= ' ml-5';
+    if ($comments->levels > 0) $commentClass .= ' comment-ml';
     ?>
     <?php if ($comments->type == 'pingback' || $comments->type == 'traceback'): ?>
-	    <div id="<?php $comments->theId(); ?>">
-            <div class="card">
-                <div class="card-body">
-                    <span class="font-weight-900"><?php $comments->author(); ?></span>
-                    <br>
-	                <span class="small"><?php $comments->date('F jS, Y'); ?> at <?php $comments->date('h:i a'); ?></span>
-                </div>
-            </div>
-        </div>
+	    <blockquote id="<?php $comments->theId(); ?>">
+            被 <?php $comments->author(); ?> 引用。
+            <br>
+	        <small><?php $comments->date('F jS, Y'); ?> at <?php $comments->date('h:i a'); ?></small>
+        </blockquote>
     <?php else: ?>
-	    <div id="<?php $comments->theId(); ?>" class="mt-3 mb-3<?php echo $commentClass; ?>">
-	        <div>
-                <?php
-                    # 如果是 QQ 邮箱则使用 QQ 头像，否则请求 Gravatar 头像
-                    $qq = str_replace('@qq.com', '', $comments->mail);
-			        if (strstr($comments->mail, "qq.com") && is_numeric($qq) && strlen($qq) < 11 && strlen($qq) > 4){
-			            $avatarUrl = 'https://q3.qlogo.cn/g?b=qq&nk='.$qq.'&s=100';
-			        } else {
-                        $avatarUrl = __TYPECHO_GRAVATAR_PREFIX__;
-                        if (!empty($comments->mail)) $avatarUrl .= md5(strtolower(trim($comments->mail)));
-                        $avatarUrl .= '?s='. '64' . '&amp;r=' . Helper::options()->commentsAvatarRating . '&amp;d=' . Helper::options()->themeUrl.'/assets/img/visitor.png';
-                    }
-                ?>
-                <img class="avatar circle" src="<?php echo $avatarUrl; ?>" alt="<?php echo $comments->author; ?>"/>
-                <div>
-                    <b><?php $comments->author(); ?></b>
-                    <?php if ($comments->authorId == $comments->ownerId): ?>
-                        <span class="badge">博主</span>
-                    <?php endif; ?>
-                    <?php if ($comments->status == 'waiting'): ?>
-                        <span class="badge"><i class="czs-talk"></i> 等待审核</span>
-                    <?php endif; ?>
-                    <?php showUserAgent($comments->agent); ?>
-                    <small><?php showLocation($comments->ip); ?></small>
-                    <br>
-	                <small><?php $comments->date('F jS, Y'); ?> at <?php $comments->date('h:i a'); ?></small>
-                    <small><?php $comments->reply('<i class="czs-pen-write"></i> Reply'); ?></small>
-                </div>
+	    <div id="<?php $comments->theId(); ?>" class="<?php echo $commentClass; ?>">
+            <?php
+                # 如果是 QQ 邮箱则使用 QQ 头像，否则请求 Gravatar 头像
+                $qq = str_replace('@qq.com', '', $comments->mail);
+			    if (strstr($comments->mail, "qq.com") && is_numeric($qq) && strlen($qq) < 11 && strlen($qq) > 4){
+			        $avatarUrl = 'https://q3.qlogo.cn/g?b=qq&nk='.$qq.'&s=100';
+			    } else {
+                    $avatarUrl = __TYPECHO_GRAVATAR_PREFIX__;
+                    if (!empty($comments->mail)) $avatarUrl .= md5(strtolower(trim($comments->mail)));
+                    $avatarUrl .= '?s='. '64' . '&amp;r=' . Helper::options()->commentsAvatarRating . '&amp;d=' . Helper::options()->themeUrl.'/assets/img/visitor.png';
+                }
+            ?>
+            <img class="avatar circle" src="<?php echo $avatarUrl; ?>" alt="<?php echo $comments->author; ?>"/>
+            <div>
+                <b><?php $comments->author(); ?></b>
+                <?php if ($comments->authorId == $comments->ownerId): ?>
+                    <small><i class="czs-forum-l"></i> 博主</small>
+                <?php endif; ?>
+                <?php showUserAgent($comments->agent); ?>
+                <small><?php showLocation($comments->ip); ?></small>
+                <small><?php $comments->reply('<i class="czs-pen-write"></i> Reply'); ?></small>
+                <?php if ($comments->status == 'waiting'): ?>
+                    <small><i class="czs-talk-l"></i> 等待审核</small>
+                <?php endif; ?>
+                <br>
+	            <small><?php $comments->date('F jS, Y'); ?> at <?php $comments->date('h:i a'); ?></small>
             </div>
             <p><?php $comments->content(); ?></p>
             <?php if ($comments->children): $comments->threadedComments($options); endif; ?>
@@ -61,14 +55,9 @@
     <?php if ($this->allow('comment')): ?>
         <hr>
         <div id="<?php $this->respondId(); ?>" class="respond">
-            <div>
-                <?php $comments->cancelReply('<i class="czs-close"></i> 取消回复'); ?>
-            </div>
+            <div><?php $comments->cancelReply('<i class="czs-close"></i> 取消回复'); ?></div>
             <?php if ($this->options->commentsNotice !=''): ?>
-                <div class="alert" role="alert">
-                    <i class="czs-warning"></i>
-                    <span><?php $this->options->commentsNotice(); ?></span>
-                </div>
+                <div class="alert" role="alert"><?php $this->options->commentsNotice(); ?></div>
             <?php endif; ?>
         	<h2 id="response">添加新评论</h2>
         	<form method="post" action="<?php $this->commentUrl(); ?>" id="comment-form" role="form">
