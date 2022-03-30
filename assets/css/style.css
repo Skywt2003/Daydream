@@ -1,5 +1,6 @@
 :root {
     --font-family: 'Noto Serif SC', serif;
+    --line-height: 1.8;
     --primary: #1e88e5;
     --card-box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
 }
@@ -49,7 +50,7 @@ html{
 }
 
 .container {
-    max-width: 820px;
+    max-width: 768px;
 }
 
 body>header, body>footer, nav {
