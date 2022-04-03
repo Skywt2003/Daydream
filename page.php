@@ -11,4 +11,6 @@
     <?php echo exContent($this->content); ?>
 </div>
 
+<?php $this->need('comments.php'); ?>
+
 <?php $this->need('footer.php'); ?>
