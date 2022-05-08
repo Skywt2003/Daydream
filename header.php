@@ -18,36 +18,32 @@
 
 	<!-- Pico.css -->
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/pico.min.css');?>">
-
     <!-- Daydream CSS -->
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/style.css')?>" rel="stylesheet">
-
     <!-- Animate.css -->
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/animate.min.css')?>" rel="stylesheet">
+    <!-- Fancybox CSS -->
+    <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/jquery.fancybox.min.css')?>" rel="stylesheet">
+    <!-- KaTeX CSS -->
+    <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/katex.min.css')?>" rel="stylesheet">
+    <!-- Highlight.js CSS -->
+    <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/atom-one-dark.min.css')?>" rel="stylesheet">
+    <!-- Caomei Icons CSS -->
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/caomei.css')?>">
+    <!-- Google Fonts -->
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style><?php $this->options->cutsomCSS(); ?></style>
 
     <!-- jQuery.js -->
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.min.js');?>"></script>
-
     <!-- Highlight.js -->
-    <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/atom-one-dark.min.css')?>" rel="stylesheet">
     <script src="<?php $this->options->themeUrl('/assets/js/highlight.min.js');?>"></script>
     <script>hljs.highlightAll();</script>
-
-    <!-- KaTeX css-->
-    <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/katex.min.css')?>" rel="stylesheet">
-
-    <!-- Fancybox js&css-->
+    <!-- Fancybox JS -->
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.fancybox.min.js');?>"></script>
-    <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/jquery.fancybox.min.css')?>" rel="stylesheet">
-
-    <!-- Caomei Icons -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/caomei.css')?>">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet"> 
 
     <?php $this->options->headerCode(); ?>
-    <style><?php $this->options->cutsomCSS(); ?></style>
 
     <?php $this->header(); ?>
 </head>
