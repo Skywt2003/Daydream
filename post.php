@@ -15,6 +15,9 @@
 <div class="meta-info">
     <i class="czs-calendar"></i>
     <time datetime="<?php $this->date('c'); ?>"><?php $this->date('Y-m-d D h:iA'); ?></time>
+    <a href="<?php $this->options->siteUrl();?>admin/write-post.php?cid=<?php $this->cid();?>" title="Edit">
+        <i class="czs-pen-write"></i> 编辑
+    </a>
     <?php if ($this->fields->pubPlace != ''): ?>
         <br>
         <i class="czs-location"></i>
