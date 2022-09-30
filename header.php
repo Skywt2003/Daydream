@@ -41,7 +41,6 @@
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.pjax.js');?>"></script>
     <!-- Highlight.js -->
     <script src="<?php $this->options->themeUrl('/assets/js/highlight.min.js');?>"></script>
-    <script>hljs.highlightAll();</script>
     <!-- Fancybox JS -->
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.fancybox.min.js');?>"></script>
 
