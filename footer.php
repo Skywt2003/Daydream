@@ -4,6 +4,16 @@
 
 <!-- Advanced styles -->
 <script>
+    $(document).pjax('a[href^="<?php $this->options->siteUrl()?>"]:not(a[target="_blank"])', {
+        container: '#pjax-container',
+        fragment: '#pjax-container'
+    });
+    $(document).on('pjax:send',function() {
+        // alert('开始加载');
+    });
+    $(document).on('pjax:complete', function() {
+        // alert('加载完成');
+    });
     $(document).ready(function(){
         $("main .post-content img").addClass("img-fluid shadow rounded");
         $("main blockquote").addClass("shadow rounded");

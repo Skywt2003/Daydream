@@ -37,6 +37,8 @@
 
     <!-- jQuery.js -->
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.min.js');?>"></script>
+    <!-- jQuery.pjax.js -->
+    <script src="<?php $this->options->themeUrl('/assets/js/jquery.pjax.js');?>"></script>
     <!-- Highlight.js -->
     <script src="<?php $this->options->themeUrl('/assets/js/highlight.min.js');?>"></script>
     <script>hljs.highlightAll();</script>
@@ -101,4 +103,4 @@
     observer.observe(stickyElm);
 </script>
 
-<main class="container">
+<main class="container" id="pjax-container">
