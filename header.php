@@ -22,9 +22,9 @@
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/style.css')?>" rel="stylesheet">
     <!-- Animate.css -->
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/animate.min.css')?>" rel="stylesheet">
-    <!-- Fancybox CSS -->
+    <!-- Fancybox.css -->
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/jquery.fancybox.min.css')?>" rel="stylesheet">
-    <!-- KaTeX CSS -->
+    <!-- KaTeX.css -->
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/katex.min.css')?>" rel="stylesheet">
     <!-- Highlight.js CSS -->
     <link type="text/css" href="<?php $this->options->themeUrl('/assets/css/atom-one-dark.min.css')?>" rel="stylesheet">
@@ -41,8 +41,11 @@
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.pjax.js');?>"></script>
     <!-- Highlight.js -->
     <script src="<?php $this->options->themeUrl('/assets/js/highlight.min.js');?>"></script>
-    <!-- Fancybox JS -->
+    <!-- Fancybox.js -->
     <script src="<?php $this->options->themeUrl('/assets/js/jquery.fancybox.min.js');?>"></script>
+    <!-- KaTeX.js -->
+    <script src="<?php $this->options->themeUrl('/assets/js/katex/katex.min.js');?>"></script>
+    <script src="<?php $this->options->themeUrl('/assets/js/katex/auto-render.min.js');?>"></script>
 
     <?php $this->options->headerCode(); ?>
 

@@ -1,8 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-<!-- Advanced styles -->
-<script>hljs.highlightAll();</script>
 <script>
+    hljs.highlightAll();
     $(document).ready(function(){
         $("main .post-content img").addClass("img-fluid shadow rounded");
         $("main blockquote").addClass("shadow rounded");
@@ -19,6 +18,15 @@
             return "close";
         }
     });
+    renderMathInElement(
+        document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+    );
 </script>
 
 </main>
@@ -31,36 +39,22 @@
     $(document).on('pjax:send',function() {
         // alert('开始加载');
     });
-    $(document).on('pjax:complete', function() {
+    $(document).on('pjax:complete', function() {   
         // alert('加载完成');
-    });
-</script>
-
-<!-- KaTeX js -->
-<script src="<?php $this->options->themeUrl('/assets/js/katex/katex.min.js');?>"></script>
-<script src="<?php $this->options->themeUrl('/assets/js/katex/auto-render.min.js');?>"></script>
-<script>
-    function triggerRenderingLaTeX(element) {
-        renderMathInElement(
-            element,
-            {
-                delimiters: [
-                    {left: "$$", right: "$$", display: true},
-                    {left: "$", right: "$", display: false},
-                ]
-            }
-        );
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-        triggerRenderingLaTeX(document.body);
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-        var wmdPreviewLink = document.querySelector("a[href='#wmd-preview']");
-        var wmdPreviewContainer = document.querySelector("#wmd-preview");
-        if(wmdPreviewLink && wmdPreviewContainer) {
-            wmdPreviewLink.onclick = function() {
-                triggerRenderingLaTeX(wmdPreviewContainer);
-            };
+        // Aplayer 插件代码
+        var len = APlayerOptions.length;
+        for(var i=0;i<len;i++){
+            APlayers[i] = new APlayer({
+                element: document.getElementById('player' + APlayerOptions[i]['id']),
+                narrow: false,
+                preload: APlayerOptions[i]['preload'],
+                mutex: APlayerOptions[i]['mutex'],
+                autoplay: APlayerOptions[i]['autoplay'],
+                showlrc: APlayerOptions[i]['showlrc'],
+                music: APlayerOptions[i]['music'],
+                theme: APlayerOptions[i]['theme']
+            });
+            APlayers[i].init();
         }
     });
 </script>
