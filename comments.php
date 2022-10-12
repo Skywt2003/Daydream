@@ -74,10 +74,10 @@
                 <?php endif; ?>
                 <textarea rows="8" cols="50" name="text" id="textarea" placeholder="Say something!" required ><?php $this->remember('text'); ?></textarea>
                 <button id="submit" class="shadow" type="submit">Submit</button>
-                <label>
+                <!-- <label>
                     <input type="checkbox" role="switch" name="receiveMail" id="receiveMail" value="yes" checked />
                     <label for="receiveMail">接收邮件通知</label>
-                </label>
+                </label> -->
         	</form>
         </div>
         <script> // 从 Typecho 源码中摘取的评论 js
