@@ -1,6 +1,6 @@
 <?php
 /**
- * Daydream 是一个简洁的 Typecho 主题。
+ * Daydream 是一个简洁轻盈的 Typecho 主题。
  * 
  * @package Daydream
  * @author SkyWT
