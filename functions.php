@@ -118,7 +118,7 @@ function showLocation($ip) {
     $addresses = IP::find($ip);
     $address = '';
     if ($addresses==='N/A'){
-        $address = 'IPv6';
+        $address = '';
     } else if (!empty($addresses)) {
         $addresses = array_unique($addresses);
         $address = implode('', $addresses);
