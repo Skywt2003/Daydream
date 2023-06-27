@@ -96,13 +96,20 @@
 </nav>
 
 <!-- Add shadow for navbar when fixed. -->
+<!-- Ref: https://codepen.io/hey-nick/pen/mLpmMV -->
 <script>
-    const stickyElm = document.querySelector('.navbar')
-    const observer = new IntersectionObserver( 
-      ([e]) => e.target.classList.toggle('shadow', e.intersectionRatio < 1),
-      {threshold: [1]}
-    );
-    observer.observe(stickyElm);
+    const headerEl = document.querySelector('.navbar')
+    const sentinalEl = document.querySelector('header')
+    const handler = (entries) => {
+      console.log(entries)
+      if (!entries[0].isIntersecting) {
+        headerEl.classList.add('shadow')
+      } else {
+        headerEl.classList.remove('shadow')
+      }
+    }
+    const observer = new window.IntersectionObserver(handler)
+    observer.observe(sentinalEl)
 </script>
 
 <main class="container" id="pjax-container">

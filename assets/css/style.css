@@ -115,7 +115,7 @@ h5 { --typography-spacing-vertical: 0.5rem; }
     padding: 0;
 
     position: sticky;
-    top: -1px; /* a little trick */
+    top: 0;
     z-index: 1020;
 
     --font-weight: 500;
