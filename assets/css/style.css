@@ -51,6 +51,7 @@ html{
 
 .container {
     max-width: 768px;
+    overflow-wrap: break-word;
 }
 
 body>header, body>footer, nav {
